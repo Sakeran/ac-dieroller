@@ -1,24 +1,7 @@
 # ac-dieroller
 
-## Project setup
-```
-npm install
-```
+## Spring 2021 Web Development Challenge - Die Roller
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This is the first project in my [Spring 2021 - Web Development Challenge](https://10in30.alexander-morse.com/) series, where I am attempting to design, code, and ship ten different web projects in the space of one month, under a variety of constraints.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+For my first project, I've decided to visit Vue.js and build a simple web application using the Vue CLI tool. This is a simple die-rolling application that allows users to set up and execute custom dice rolls.
