@@ -6,22 +6,25 @@
     />
 
     <div class="editor-content">
-      <p>Editor Stuff</p>
+      <RollList :dice="dice" />
     </div>
   </div>
 </template>
 
 <script>
 import EditorTopBar from "./EditorTopBar";
+import RollList from "./RollList";
 
 export default {
   name: "EditorView",
   emits: ["toggle-editor"],
   components: {
     EditorTopBar,
+    RollList,
   },
   props: {
     editorActive: Boolean,
+    dice: Array,
   },
 };
 </script>
@@ -37,17 +40,17 @@ export default {
   height: 100%;
 
   position: absolute;
-  top: 4rem;
+  top: calc(100% - 56px);
   left: 0;
 
   transition: top 0.3s ease-out;
 }
 
 .editor-view.editor-active {
-  top: calc(100% - 56px);
+  top: 4rem;
 }
 
 .editor-content {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 </style>

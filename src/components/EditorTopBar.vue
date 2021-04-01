@@ -1,7 +1,7 @@
 <template>
   <div class="editor-bar">
     <button class="toggle" @click.prevent="$emit('toggle-editor')">
-      <ChevronRightCircle v-if="editorActive" :size="28" />
+      <ChevronRightCircle v-if="!editorActive" :size="28" />
       <ChevronDownCircle v-else :size="28" />
       {{ toggleText }}
     </button>
@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     toggleText() {
-      return this.editorActive ? "Show Rolls" : "Hide Rolls";
+      return !this.editorActive ? "Show Rolls" : "Hide Rolls";
     },
   },
 };
