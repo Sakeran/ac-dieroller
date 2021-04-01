@@ -2,10 +2,10 @@
   <div class="main-grid">
     <div class="grid-sections">
       <RollView :editorActive="editorActive" />
-      <EditorView :editorActive="editorActive" />
+      <EditorView @toggle-editor="toggleEditor" :editorActive="editorActive" />
     </div>
     <div class="main-button"></div>
-    <MainButton @click="onClick" text="Roll" />
+    <MainButton @click="onMainClick" text="Roll" />
   </div>
 </template>
 
@@ -28,9 +28,8 @@ export default {
     };
   },
   methods: {
-    onClick() {
-      // Temp. button behavior.
-      this.toggleEditor();
+    onMainClick() {
+      // Stub
     },
     toggleEditor() {
       this.editorActive = !this.editorActive;
@@ -82,9 +81,5 @@ body {
   height: calc(100% - 96px);
   overflow-y: hidden;
   position: relative;
-}
-
-.main-button {
-  border-top: 1px solid #003E47;
 }
 </style>

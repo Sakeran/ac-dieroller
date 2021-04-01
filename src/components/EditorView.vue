@@ -1,6 +1,9 @@
 <template>
   <div :class="[{ 'editor-active': editorActive }, 'editor-view']">
-    <EditorTopBar />
+    <EditorTopBar
+      @toggle-editor="$emit('toggle-editor')"
+      :editorActive="editorActive"
+    />
 
     <div class="editor-content">
       <p>Editor Stuff</p>
@@ -13,6 +16,7 @@ import EditorTopBar from "./EditorTopBar";
 
 export default {
   name: "EditorView",
+  emits: ["toggle-editor"],
   components: {
     EditorTopBar,
   },
@@ -40,7 +44,7 @@ export default {
 }
 
 .editor-view.editor-active {
-  top: calc(100% - 48px);
+  top: calc(100% - 56px);
 }
 
 .editor-content {
