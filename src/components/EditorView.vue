@@ -33,6 +33,9 @@ export default {
 .editor-view {
   padding: 0 0.5rem;
 
+  display: flex;
+  flex-direction: column;
+
   background-color: #292929;
   border-top: 1px solid #454545;
   padding-top: 4px;
@@ -52,5 +55,14 @@ export default {
 
 .editor-content {
   margin-top: 1rem;
+  padding-bottom: 5rem;
+  overflow-y: scroll;
+}
+
+.editor-content::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 70px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="roll-list">
     <ul>
-      <li v-for="roll in dice" :key="roll.id"><RollEntry :roll="roll"/></li>
+      <li v-for="roll in dice" :key="roll.id"><RollEntry :roll="roll" /></li>
     </ul>
   </div>
 </template>
