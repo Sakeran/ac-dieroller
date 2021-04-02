@@ -5,7 +5,9 @@
       <ChevronDownCircle v-else :size="28" />
       {{ toggleText }}
     </button>
-    <button class="new-roll"><PlusCircle size="28" /> New Roll</button>
+    <button class="new-roll" @click="$store.dispatch('newRoll')">
+      <PlusCircle size="28" /> New Roll
+    </button>
   </div>
 </template>
 

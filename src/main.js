@@ -36,6 +36,10 @@ const store = createStore({
       state.rollEditorActive = false;
     },
 
+    addRoll(state, roll) {
+      state.dice = [...state.dice, roll];
+    },
+
     editRoll(state, rollId) {
       const roll = state.dice.find((r) => r.id == rollId);
       if (!roll) return; // Failing silently seems acceptable for now.
@@ -67,6 +71,19 @@ const store = createStore({
       ) {
         state.rollEditorActive = false;
       }
+    },
+  },
+  actions: {
+    newRoll({ commit }) {
+      const newRoll = {
+        id: `${Date.now()}`,
+        name: "New Roll",
+        count: 1,
+        type: 20,
+      };
+
+      commit("addRoll", newRoll);
+      commit("editRoll", newRoll.id);
     },
   },
 });
