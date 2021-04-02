@@ -5,7 +5,7 @@
       <EditorView
         @toggle-editor="toggleEditor"
         :editorActive="editorActive"
-        rollEditorActive
+        :rollEditorActive="rollEditorActive"
         :dice="dice"
       />
     </div>
@@ -30,6 +30,7 @@ export default {
   data() {
     return {
       editorActive: false,
+      rollEditorActive: false,
       // Stub dice data
       dice: [
         { id: "000", name: "Sample D20", type: 20, color: "#f00", count: 1 },
