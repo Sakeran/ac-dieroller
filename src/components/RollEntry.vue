@@ -6,7 +6,9 @@
       <Pencil :key="i" v-for="i in roll.count" size="12" />
     </div>
     <p class="die-type">{{ roll.count }}d{{ roll.type }}</p>
-    <button aria-label="Edit Roll"><Pencil size="28" /></button>
+    <button aria-label="Edit Roll">
+      <Pencil size="28" />
+    </button>
   </div>
 </template>
 
@@ -60,5 +62,14 @@ button {
   background: none;
   border: none;
   color: currentColor;
+}
+
+button:hover,
+button:focus {
+  color: #aaa;
+}
+
+button:active {
+  color: #2fbbce;
 }
 </style>
