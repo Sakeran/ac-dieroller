@@ -69,7 +69,6 @@
           :style="{ 'background-color': rollColor }"
         ></div>
       </div>
-      <div class="dice-display">DISPLAY</div>
       <button class="delete" @click="$store.commit('deleteRoll', roll.id)">
         <CircleCross size="30" />Delete Roll
       </button>
