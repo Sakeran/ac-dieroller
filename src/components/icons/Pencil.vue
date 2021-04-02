@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "PlusCircle",
+  name: "Pencil",
   props: {
     size: { type: String, required: false },
   },

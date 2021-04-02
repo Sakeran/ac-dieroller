@@ -2,8 +2,7 @@
   <div class="roll-entry">
     <p class="die-name">{{ roll.name }}</p>
     <div class="die-icons">
-      <!-- STUB -->
-      <Pencil :key="i" v-for="i in roll.count" size="12" />
+      <Die20 :key="i" v-for="i in roll.count" size="12" strokeWidth="16" />
     </div>
     <p class="die-type">{{ roll.count }}d{{ roll.type }}</p>
     <button aria-label="Edit Roll" @click="$store.commit('editRoll', roll.id)">
@@ -14,11 +13,13 @@
 
 <script>
 import Pencil from "./icons/Pencil";
+import Die20 from "./icons/Die20";
 
 export default {
   name: "RollEntry",
   components: {
     Pencil,
+    Die20,
   },
   props: {
     roll: Object,
