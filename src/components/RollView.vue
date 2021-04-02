@@ -10,9 +10,6 @@
 <script>
 export default {
   name: "RollView",
-  props: {
-    editorActive: Boolean,
-  },
 };
 </script>
 
@@ -37,8 +34,8 @@ h1 {
 }
 
 .roll-view::after {
-    content: "";
-    display: block;
-    height: 92px;
+  content: "";
+  display: block;
+  height: 92px;
 }
 </style>

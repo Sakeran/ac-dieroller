@@ -1,7 +1,9 @@
 <template>
   <div class="roll-list">
     <ul>
-      <li v-for="roll in dice" :key="roll.id"><RollEntry :roll="roll" /></li>
+      <li v-for="roll in $store.state.dice" :key="roll.id">
+        <RollEntry :roll="roll" />
+      </li>
     </ul>
   </div>
 </template>
@@ -13,9 +15,6 @@ export default {
   name: "RollList",
   components: {
     RollEntry,
-  },
-  props: {
-    dice: Array,
   },
 };
 </script>

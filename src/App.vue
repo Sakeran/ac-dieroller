@@ -1,13 +1,8 @@
 <template>
   <div class="main-grid">
     <div class="grid-sections">
-      <RollView :editorActive="editorActive" />
-      <EditorView
-        @toggle-editor="toggleEditor"
-        :editorActive="editorActive"
-        :rollEditorActive="rollEditorActive"
-        :dice="dice"
-      />
+      <RollView />
+      <EditorView />
     </div>
     <div class="main-button"></div>
     <MainButton @click="onMainClick" text="Roll" />
@@ -27,24 +22,9 @@ export default {
     EditorView,
     MainButton,
   },
-  data() {
-    return {
-      editorActive: false,
-      rollEditorActive: false,
-      // Stub dice data
-      dice: [
-        { id: "000", name: "Sample D20", type: 20, color: "#f00", count: 1 },
-        { id: "001", name: "Sample D10", type: 10, color: "#0f0", count: 2 },
-        { id: "002", name: "Sample D6", type: 6, color: "#f0f", count: 3 },
-      ],
-    };
-  },
   methods: {
     onMainClick() {
       // Stub
-    },
-    toggleEditor() {
-      this.editorActive = !this.editorActive;
     },
   },
   setup() {

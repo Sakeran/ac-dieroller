@@ -1,7 +1,7 @@
 <template>
   <div class="editor-bar">
-    <button class="toggle" @click.prevent="$emit('toggle-editor')">
-      <ChevronRightCircle v-if="!editorActive" :size="28" />
+    <button class="toggle" @click.prevent="$store.commit('toggleEditorView')">
+      <ChevronRightCircle v-if="!$store.state.editorActive" :size="28" />
       <ChevronDownCircle v-else :size="28" />
       {{ toggleText }}
     </button>
@@ -16,10 +16,6 @@ import ChevronDownCircle from "./icons/ChevronDownCircle";
 
 export default {
   name: "EditorTopBar",
-  emits: ["toggle-editor"],
-  props: {
-    editorActive: Boolean,
-  },
   components: {
     PlusCircle,
     ChevronRightCircle,
@@ -27,7 +23,7 @@ export default {
   },
   computed: {
     toggleText() {
-      return !this.editorActive ? "Show Rolls" : "Hide Rolls";
+      return !this.$store.state.editorActive ? "Show Rolls" : "Hide Rolls";
     },
   },
 };

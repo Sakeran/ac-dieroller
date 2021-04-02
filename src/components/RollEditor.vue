@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{ 'edit-roll': showRollEditor }, 'roll-editor']">
+  <div :class="[{ 'edit-roll': $store.state.rollEditorActive }, 'roll-editor']">
     <h2>Edit Roll</h2>
 
     <div class="form">
@@ -31,7 +31,7 @@
         <div class="roll-color-swatch"></div>
       </div>
       <div class="dice-display">DISPLAY</div>
-      <button class="delete"><CircleCross size="30"/>Delete Roll</button>
+      <button class="delete"><CircleCross size="30" />Delete Roll</button>
     </div>
   </div>
 </template>
@@ -43,9 +43,6 @@ export default {
   name: "RollEditor",
   components: {
     CircleCross,
-  },
-  props: {
-    showRollEditor: Boolean,
   },
 };
 </script>
@@ -121,6 +118,6 @@ select {
 }
 
 .delete > :first-child {
-    margin-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 </style>

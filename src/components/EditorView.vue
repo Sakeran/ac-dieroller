@@ -1,13 +1,10 @@
 <template>
-  <div :class="[{ 'editor-active': editorActive }, 'editor-view']">
-    <EditorTopBar
-      @toggle-editor="$emit('toggle-editor')"
-      :editorActive="editorActive"
-    />
+  <div :class="[{ 'editor-active': $store.state.editorActive }, 'editor-view']">
+    <EditorTopBar />
 
     <div class="editor-content">
-      <RollList :dice="dice" />
-      <RollEditor :showRollEditor="rollEditorActive" />
+      <RollList />
+      <RollEditor />
     </div>
   </div>
 </template>
@@ -24,11 +21,6 @@ export default {
     EditorTopBar,
     RollList,
     RollEditor,
-  },
-  props: {
-    editorActive: Boolean,
-    rollEditorActive: Boolean,
-    dice: Array,
   },
 };
 </script>
