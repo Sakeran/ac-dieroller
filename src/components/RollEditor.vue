@@ -2,18 +2,38 @@
   <div :class="[{ 'edit-roll': $store.state.rollEditorActive }, 'roll-editor']">
     <div class="header">
       <h2>Edit Roll</h2>
-      <button class="back" @click="$store.commit('openEditorView')">&lt; Return to List</button>
+      <button class="back" @click="$store.commit('openEditorView')">
+        &lt; Return to List
+      </button>
     </div>
 
     <div class="form">
       <div class="form-element">
         <label for="name">Name</label>
-        <input type="text" id="roll-name" />
+        <input
+          type="text"
+          id="roll-name"
+          :value="rollName"
+          @input="
+            (e) =>
+              $store.commit('updateRoll', {
+                ...roll,
+                name: e.target.value,
+              })
+          "
+        />
       </div>
 
       <div class="form-element">
         <label for="roll-type">Type</label>
-        <select id="roll-type">
+        <select
+          id="roll-type"
+          :value="rollType"
+          @input="
+            (e) =>
+              $store.commit('updateRoll', { ...roll, type: e.target.value })
+          "
+        >
           <option value="2">2</option>
           <option value="4">4</option>
           <option value="6">6</option>
@@ -26,26 +46,56 @@
 
       <div class="form-element">
         <label for="roll-count">Count</label>
-        <input id="roll-count" type="number" />
+        <input
+          id="roll-count"
+          min="1"
+          size="2"
+          type="number"
+          :value="rollCount"
+          @input="
+            (e) =>
+              $store.commit('updateRoll', {
+                ...roll,
+                count: e.target.value,
+              })
+          "
+        />
       </div>
 
       <div class="form-element">
         <label for="roll-color">Color</label>
-        <div class="roll-color-swatch"></div>
+        <div
+          class="roll-color-swatch"
+          :style="{ 'background-color': rollColor }"
+        ></div>
       </div>
       <div class="dice-display">DISPLAY</div>
-      <button class="delete"><CircleCross size="30" />Delete Roll</button>
+      <button class="delete" @click="$store.commit('deleteRoll', roll.id)">
+        <CircleCross size="30" />Delete Roll
+      </button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import CircleCross from "./icons/CircleCross";
 
 export default {
   name: "RollEditor",
   components: {
     CircleCross,
+  },
+  computed: {
+    ...mapState({
+      roll: (state) => state.editedRoll,
+      rollName: (state) => state.editedRoll && (state.editedRoll.name || ""),
+      rollType: (state) => state.editedRoll && (state.editedRoll.type || "20"),
+      rollCount: (state) => state.editedRoll && (state.editedRoll.count || "1"),
+      rollColor: (state) =>
+        state.editedRoll && (state.editedRoll.color || "#fff"),
+    }),
   },
 };
 </script>
@@ -123,7 +173,6 @@ select {
   width: 30px;
   height: 30px;
   border-radius: 4px;
-  background-color: red;
 }
 
 .delete {

@@ -44,6 +44,31 @@ const store = createStore({
       state.rollEditorActive = true;
       state.editedRoll = roll;
     },
+
+    updateRoll(state, roll) {
+      state.dice = state.dice.map((r) => {
+        if (r.id !== roll.id) return r;
+        return {
+          id: roll.id,
+          name: roll.name || r.name || "Untitled Roll",
+          type: parseInt(roll.type || r.type || "20"),
+          count: parseInt(roll.count || r.count || "1"),
+          color: roll.color || r.color || "#fff",
+        };
+      });
+    },
+
+    deleteRoll(state, rollId) {
+      state.dice = state.dice.filter((r) => r.id !== rollId);
+
+      if (
+        state.rollEditorActive &&
+        state.editedRoll &&
+        state.editedRoll.id === rollId
+      ) {
+        state.rollEditorActive = false;
+      }
+    },
   },
 });
 

@@ -33,7 +33,7 @@ export default {
   display: grid;
   grid-template-areas:
     "name display edit"
-    "type . edit";
+    "type display edit";
   grid-template-columns: 3fr 2fr 32px;
   row-gap: 0.25rem;
 }
@@ -47,9 +47,10 @@ export default {
 
 .die-icons {
   grid-area: display;
+  padding-right: 1rem;
 
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
 .die-type {
