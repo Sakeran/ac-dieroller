@@ -17,6 +17,8 @@ const store = createStore({
         { id: "002", name: "Sample D6", type: 6, count: 3 },
       ],
 
+      activeRoll: null,
+
       // Roll Editor State
       editedRoll: null,
     };
@@ -34,6 +36,13 @@ const store = createStore({
     toggleEditorView(state) {
       state.editorActive = !state.editorActive;
       state.rollEditorActive = false;
+    },
+
+    selectRoll(state, rollId) {
+      const roll = state.dice.find((r) => r.id == rollId);
+      if (!roll) return; // Failing silently seems acceptable for now.
+
+      state.activeRoll = roll;
     },
 
     addRoll(state, roll) {
@@ -84,6 +93,11 @@ const store = createStore({
 
       commit("addRoll", newRoll);
       commit("editRoll", newRoll.id);
+    },
+  },
+  getters: {
+    isActiveRoll: (state) => (rollId) => {
+      return state.activeRoll ? state.activeRoll.id == rollId : false;
     },
   },
 });
