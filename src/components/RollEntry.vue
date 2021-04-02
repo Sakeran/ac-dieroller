@@ -7,7 +7,7 @@
     </div>
     <p class="die-type">{{ roll.count }}d{{ roll.type }}</p>
     <button aria-label="Edit Roll" @click="$store.commit('editRoll', roll.id)">
-      <Pencil size="28" />
+      <Pencil size="32" />
     </button>
   </div>
 </template>
@@ -29,12 +29,14 @@ export default {
 <style scoped>
 .roll-entry {
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #454545;
 
   display: grid;
   grid-template-areas:
     "name display edit"
     "type display edit";
-  grid-template-columns: 3fr 2fr 32px;
+  grid-template-columns: 4fr 2fr 48px;
   row-gap: 0.25rem;
 }
 
