@@ -7,6 +7,7 @@
 
     <div class="editor-content">
       <RollList :dice="dice" />
+      <RollEditor :showRollEditor="rollEditorActive" />
     </div>
   </div>
 </template>
@@ -14,6 +15,7 @@
 <script>
 import EditorTopBar from "./EditorTopBar";
 import RollList from "./RollList";
+import RollEditor from "./RollEditor";
 
 export default {
   name: "EditorView",
@@ -21,9 +23,11 @@ export default {
   components: {
     EditorTopBar,
     RollList,
+    RollEditor,
   },
   props: {
     editorActive: Boolean,
+    rollEditorActive: Boolean,
     dice: Array,
   },
 };
@@ -54,9 +58,11 @@ export default {
 }
 
 .editor-content {
+  flex-grow: 1;
   margin-top: 1rem;
   padding-bottom: 5rem;
   overflow-y: scroll;
+  position: relative;
 }
 
 .editor-content::after {

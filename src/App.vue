@@ -5,6 +5,7 @@
       <EditorView
         @toggle-editor="toggleEditor"
         :editorActive="editorActive"
+        rollEditorActive
         :dice="dice"
       />
     </div>
@@ -60,8 +61,14 @@ export default {
         );
       };
 
-      window.addEventListener("resize", setVh);
+      // Note - Listening on the 'resize' event doesn't quite seem to work for this layout, since
+      // all of the content is pushed up on mobile when the keyboard is visible, but not restored after.
+      // Periodically running the setVh function at least acheives the correct behavior in all the
+      // browsers I've tested in.
+      // window.addEventListener("resize", setVh);
+
       setVh();
+      setInterval(setVh, 100);
     });
   },
 };
@@ -75,6 +82,7 @@ export default {
 }
 
 body {
+  position: relative;
   background-color: #1f1f1f;
   color: white;
   font-family: "Roboto", sans-serif;
@@ -82,9 +90,10 @@ body {
 }
 
 .main-grid {
+  position: relative;
   width: 100%;
   height: calc(var(--vh, 1vh) * 100);
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
 .grid-sections {
