@@ -5,7 +5,7 @@
       <EditorView />
     </div>
     <div class="main-button"></div>
-    <MainButton @click="onMainClick" text="Roll" />
+    <MainButton />
   </div>
 </template>
 
@@ -21,11 +21,6 @@ export default {
     RollView,
     EditorView,
     MainButton,
-  },
-  methods: {
-    onMainClick() {
-      // Stub
-    },
   },
   setup() {
     onBeforeMount(() => {
