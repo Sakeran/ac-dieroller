@@ -12,9 +12,9 @@ const store = createStore({
       // Roll / Dice Data
       // Stub
       dice: [
-        { id: "000", name: "Sample D20", type: 20, color: "#f00", count: 1 },
-        { id: "001", name: "Sample D10", type: 10, color: "#0f0", count: 2 },
-        { id: "002", name: "Sample D6", type: 6, color: "#f0f", count: 3 },
+        { id: "000", name: "Sample D20", type: 20, count: 1 },
+        { id: "001", name: "Sample D10", type: 10, count: 2 },
+        { id: "002", name: "Sample D6", type: 6, count: 3 },
       ],
 
       // Roll Editor State
@@ -53,7 +53,6 @@ const store = createStore({
           name: roll.name || r.name || "Untitled Roll",
           type: parseInt(roll.type || r.type || "20"),
           count: parseInt(roll.count || r.count || "1"),
-          color: roll.color || r.color || "#fff",
         };
       });
     },

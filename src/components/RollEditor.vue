@@ -62,13 +62,6 @@
         />
       </div>
 
-      <div class="form-element">
-        <label for="roll-color">Color</label>
-        <div
-          class="roll-color-swatch"
-          :style="{ 'background-color': rollColor }"
-        ></div>
-      </div>
       <button class="delete" @click="$store.commit('deleteRoll', roll.id)">
         <CircleCross size="30" />Delete Roll
       </button>
@@ -169,8 +162,8 @@ select {
 
 .roll-color-swatch {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 16px;
+  height: 16px;
   border-radius: 4px;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="roll-entry">
     <p class="die-name">{{ roll.name }}</p>
-    <div class="die-icons" :style="{ color: roll.color }">
+    <div class="die-icons">
       <!-- STUB -->
       <Pencil :key="i" v-for="i in roll.count" size="12" />
     </div>
@@ -48,7 +48,6 @@ export default {
 .die-icons {
   grid-area: display;
   padding-right: 1rem;
-
   display: flex;
   flex-wrap: wrap;
 }
