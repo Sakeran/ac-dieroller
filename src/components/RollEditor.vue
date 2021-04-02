@@ -63,7 +63,7 @@
       </div>
 
       <button class="delete" @click="$store.commit('deleteRoll', roll.id)">
-        <CircleCross size="30" />Delete Roll
+        <CircleCross size="24" />Delete Roll
       </button>
     </div>
   </div>
@@ -172,8 +172,7 @@ select {
   margin-left: auto;
 
   color: #f14040;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.25rem;
 
   padding: 0.5rem 1.2rem;
   background: none;
