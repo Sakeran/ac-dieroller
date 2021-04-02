@@ -3,20 +3,20 @@
     <p class="die-name">{{ roll.name }}</p>
     <div class="die-icons" :style="{ color: roll.color }">
       <!-- STUB -->
-      <PlusCircle :key="i" v-for="i in roll.count" size="12" />
+      <Pencil :key="i" v-for="i in roll.count" size="12" />
     </div>
     <p class="die-type">{{ roll.count }}d{{ roll.type }}</p>
-    <button aria-label="Edit Roll"><PlusCircle size="32" /></button>
+    <button aria-label="Edit Roll"><Pencil size="28" /></button>
   </div>
 </template>
 
 <script>
-import PlusCircle from "./icons/PlusCircle";
+import Pencil from "./icons/Pencil";
 
 export default {
   name: "RollEntry",
   components: {
-    PlusCircle,
+    Pencil,
   },
   props: {
     roll: Object,
