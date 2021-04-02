@@ -39,14 +39,15 @@ export default {
   height: 100%;
 
   position: absolute;
-  top: calc(100% - 56px);
+  top: 0;
   left: 0;
 
-  transition: top 0.3s ease-out;
+  transform: translateY(calc(100% - 56px));
+  transition: transform 0.3s ease-out;
 }
 
 .editor-view.editor-active {
-  top: 4rem;
+  transform: translateY(4rem);
 }
 
 .editor-content {
