@@ -2,9 +2,9 @@
   <div :class="[{ 'editor-active': $store.state.editorActive }, 'editor-view']">
     <EditorTopBar />
 
-    <div class="editor-content">
+    <div :aria-hidden="!$store.state.editorActive" class="editor-content">
       <RollList />
-      <RollEditor />
+      <RollEditor :aria-hidden="!$store.state.rollEditorActive" />
     </div>
   </div>
 </template>

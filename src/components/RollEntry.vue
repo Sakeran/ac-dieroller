@@ -6,7 +6,7 @@
       <Pencil :key="i" v-for="i in roll.count" size="12" />
     </div>
     <p class="die-type">{{ roll.count }}d{{ roll.type }}</p>
-    <button aria-label="Edit Roll">
+    <button aria-label="Edit Roll" @click="$store.commit('editRoll', roll.id)">
       <Pencil size="28" />
     </button>
   </div>

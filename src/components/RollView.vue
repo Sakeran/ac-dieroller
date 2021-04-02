@@ -1,7 +1,7 @@
 <template>
   <div class="roll-view">
     <h1>QuickRoll</h1>
-    <section class="roll-screen">
+    <section :aria-hidden="$store.state.editorActive" class="roll-screen">
       <p>Roll Content</p>
     </section>
   </div>

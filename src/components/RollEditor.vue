@@ -1,6 +1,9 @@
 <template>
   <div :class="[{ 'edit-roll': $store.state.rollEditorActive }, 'roll-editor']">
-    <h2>Edit Roll</h2>
+    <div class="header">
+      <h2>Edit Roll</h2>
+      <button class="back" @click="$store.commit('openEditorView')">&lt; Return to List</button>
+    </div>
 
     <div class="form">
       <div class="form-element">
@@ -66,9 +69,31 @@ export default {
   transform: translateX(0);
 }
 
+.header {
+  display: flex;
+  /* align-items: center; */
+  margin-bottom: 1.25rem;
+}
+
 h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+}
+
+.back {
+  color: #2fbbce;
+  font-size: 1.15rem;
+
+  margin-left: 1rem;
+  background: none;
+  border: none;
+}
+
+.back:active {
+  color: white;
+}
+
+.back > :first-child {
+  margin-right: 0.5rem;
 }
 
 .form {
