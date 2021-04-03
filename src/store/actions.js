@@ -1,3 +1,5 @@
+import { loadRolls } from "../storage";
+
 export default {
   newRoll({ commit }) {
     const newRoll = {
@@ -22,5 +24,28 @@ export default {
 
     commit("setRollResults", results);
     commit("refreshRollId");
+  },
+  resetRolls({ commit }) {
+    commit("clearRolls");
+
+    const roll = {
+      id: `${Date.now()}`,
+      name: "Twenty-Sided",
+      count: 1,
+      type: 20,
+    };
+
+    commit("addRoll", roll);
+    commit("selectRoll", roll.id);
+  },
+  loadRolls({ commit, dispatch }) {
+    const dice = loadRolls();
+
+    if (!dice.length) {
+      return dispatch("resetRolls");
+    }
+
+    commit("setRolls", dice);
+    commit("selectRoll", dice[0].id);
   },
 };

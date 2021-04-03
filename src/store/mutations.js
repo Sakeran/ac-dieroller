@@ -19,6 +19,14 @@ export default {
     state.activeRoll = roll;
   },
 
+  clearRolls(state) {
+    state.dice = [];
+  },
+
+  setRolls(state, dice) {
+    state.dice = dice;
+  },
+
   addRoll(state, roll) {
     state.dice = [...state.dice, roll];
   },
@@ -44,7 +52,7 @@ export default {
     });
 
     // Update the active roll if necessary.
-    if (state.activeRoll.id === roll.id) {
+    if (state.activeRoll && state.activeRoll.id === roll.id) {
       state.activeRoll = state.dice.find((r) => r.id == roll.id);
     }
   },

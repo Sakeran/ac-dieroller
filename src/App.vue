@@ -22,6 +22,9 @@ export default {
     EditorView,
     MainButton,
   },
+  mounted() {
+    this.$store.dispatch("loadRolls");
+  },
   setup() {
     onBeforeMount(() => {
       // Setup listener to determine viewport's inner height.
