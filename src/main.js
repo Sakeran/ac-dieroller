@@ -21,6 +21,10 @@ const store = createStore({
 
       // Roll Editor State
       editedRoll: null,
+
+      // Roll View State
+      rollResultId: 0,
+      rollResults: [],
     };
   },
 
@@ -68,6 +72,11 @@ const store = createStore({
           count: parseInt(roll.count || r.count || "1"),
         };
       });
+
+      // Update the active roll if necessary.
+      if (state.activeRoll.id === roll.id) {
+        state.activeRoll = state.dice.find((r) => r.id == roll.id);
+      }
     },
 
     deleteRoll(state, rollId) {
@@ -80,6 +89,18 @@ const store = createStore({
       ) {
         state.rollEditorActive = false;
       }
+
+      if (state.activeRoll && state.activeRoll.id == rollId) {
+        state.activeRoll = null;
+      }
+    },
+
+    setRollResults(state, results) {
+      state.rollResults = results;
+    },
+
+    refreshRollId(state) {
+      state.rollResultId = Date.now();
     },
   },
   actions: {
@@ -93,6 +114,19 @@ const store = createStore({
 
       commit("addRoll", newRoll);
       commit("editRoll", newRoll.id);
+    },
+    rollDice({ commit, state }) {
+      commit("closeEditorView");
+
+      const roll = state.activeRoll;
+
+      const results = [];
+      for (let i = 0; i < roll.count; i++) {
+        results.push(1 + Math.floor(Math.random() * roll.type));
+      }
+
+      commit("setRollResults", results);
+      commit("refreshRollId");
     },
   },
   getters: {

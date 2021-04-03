@@ -26,8 +26,7 @@ export default {
     click() {
       if (!this.isActive) return;
 
-      // STUB
-      console.log("Click Main");
+      this.$store.dispatch("rollDice");
     },
   },
 };
