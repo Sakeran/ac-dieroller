@@ -6,6 +6,8 @@ This is the first project in my [Spring 2021 - Web Development Challenge](https:
 
 For my first project, I've decided to visit Vue.js and build a simple web application using the Vue CLI tool. This is a simple die-rolling application that allows users to set up and execute custom dice rolls.
 
+A live version of this project can be found running [here](https://arm-ac-dieroller.surge.sh/).
+
 ## Blog Post
 
 **Start Date**: April 1, 2021
@@ -18,7 +20,7 @@ I decided to start off this month with a project from the second category. And I
 
 That was the good news. While I had a lot of fun working with Vue, I ran into a few DOM-related roadblocks while trying to make the application display well everywhere. As you can see from the thumbnail, I had the idea in my head that I was going to make a full-height web application, a mobile-first display with most of the controls on the bottom of the screen where they would be easy to use. Furthermore, there is a sliding-drawer effect to switch between views - pressing ‘Show Rolls’ causes the roll-editor section to slide up and cover most of the screen.
 
-In other words, I chose a layout which gave mobile browsers every conceivable chance to bug out. And they did. The biggest issue was always with the slide-out keyboard on my Android device - it tends to push the layout up and out of the view when it extends, and the layout tends to stay pushed up even when it retracts, leaving the header hidden from view. I was able to alleviate this problem a little by switching from absolute positioning to a grid-based, but it still crops up from time to time. Ultimately I ran out of time, and the project ended with mobile usability not quite being what I’d hoped.
+In other words, I chose a layout which gave mobile browsers every conceivable chance to bug out. And they did. The biggest issue was always with the slide-out keyboard on my Android device - it tends to push the layout up and out of the view when it extends, and the layout tends to stay pushed up even when it retracts, leaving the header hidden from view. I was able to alleviate this problem a little by switching from absolute positioning to grid-based, but it still crops up from time to time. Ultimately I ran out of time, and the project ended with mobile usability not quite being what I’d hoped.
 
 This wasn’t the worst start to the month - and I’m happy with the tools I used. But I might go with some more standard layout decisions going forward.
 
