@@ -27,27 +27,26 @@ export default {
 
 <style scoped>
 .editor-view {
-  padding: 0 0.5rem;
+  grid-area: 2 / 1 / 4 / 3;
+  position: relative;
+  z-index: 3;
 
   display: flex;
   flex-direction: column;
 
   background-color: #292929;
   border-top: 1px solid #454545;
+  
+  padding: 0 0.5rem;
   padding-top: 4px;
-  width: 100%;
-  height: 100%;
 
-  position: absolute;
-  top: 0;
-  left: 0;
 
   transform: translateY(calc(100% - 56px));
   transition: transform 0.3s ease-out;
 }
 
 .editor-view.editor-active {
-  transform: translateY(4rem);
+  transform: translateY(0);
 }
 
 .editor-content {

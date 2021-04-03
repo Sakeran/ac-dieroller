@@ -104,11 +104,17 @@ export default {
   height: 100%;
 
   transform: translateX(-100%);
-  transition: transform 0.3s ease-out;
+  transition: all 0.3s ease-out;
+
+  opacity: 0;
+  pointer-events: none;
+
 }
 
 .roll-editor.edit-roll {
   transform: translateX(0);
+  opacity: 1;
+  pointer-events: all;
 }
 
 .header {

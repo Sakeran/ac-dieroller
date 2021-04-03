@@ -34,9 +34,8 @@ export default {
 
 <style scoped>
 .roll-view {
-  position: relative;
+  grid-area: 1 / 1 / 3 / 3;
   background-color: #1f1f1f;
-  height: 100%;
   overflow-y: scroll;
 }
 

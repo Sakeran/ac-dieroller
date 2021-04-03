@@ -79,5 +79,8 @@ body {
   height: calc(100% - 96px);
   overflow-y: hidden;
   position: relative;
+
+  display: grid;
+  grid-template-rows: 4rem 1fr;
 }
 </style>
