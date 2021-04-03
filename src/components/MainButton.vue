@@ -37,6 +37,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
 
   width: calc(100% - 1rem);
   margin: 4px auto 0 auto;

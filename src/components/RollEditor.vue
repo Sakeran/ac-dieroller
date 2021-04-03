@@ -164,6 +164,7 @@ input,
 select {
   min-height: 32px;
   font-size: 1.25rem;
+  max-width: 70%;
 }
 
 .roll-color-swatch {
